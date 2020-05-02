@@ -1,0 +1,89 @@
+#searchTerm{
+
+    width: 80%;
+}
+
+#flag{
+
+    width: 50%;
+    height: auto;
+}
+
+.countryCard{
+
+    margin-top: 100px;
+}
+
+#temp{
+    margin-top: 50px;
+    margin-left: 30px;
+    font-size: 30px;
+    
+}
+
+.imgCol{
+    text-align: center;
+}
+
+.description{
+    margin-left: 20px;
+    font-size: 20px;
+    margin-bottom: -10px;
+
+}
+
+p{
+    font-size: 20px;
+}
+
+#covidH1, #Images{
+    text-align: center;
+}
+.redHead{
+    background-color: red;
+}
+
+.greenHead{
+    background-color: green;
+}
+
+.covidCard, #ImagesCard{
+    margin-top: 50px;
+}
+
+.container{
+    /* margin-bottom: 20%;
+    margin-top: 5%; */
+    margin: 5% 10% 20% 10%;
+}
+
+.history{
+    height: 100%;
+    background-color: rgb(33, 98, 98);
+
+}
+.articles{
+    height: 100%;
+    background-color: aqua;
+}
+
+.float{
+    float: left;
+}
+
+.child{
+    float: left;
+}
+
+.middle{
+    background-color: rgb(170, 158, 46);
+}
+
+.right{
+    float:right;
+    clear: left;
+}
+
+.haf{
+    width: 50%;
+}
