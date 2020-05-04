@@ -54,17 +54,18 @@ p{
 .container{
     /* margin-bottom: 20%;
     margin-top: 5%; */
-    margin: 5% 10% 20% 10%;
+    margin: 0% auto;
 }
 
 .history{
     height: 100%;
-    background-color: rgb(33, 98, 98);
+    background-color: rgb(225, 228, 228);
 
 }
 .articles{
     height: 100%;
-    background-color: aqua;
+    background-color: rgb(225, 228, 228);
+    margin-right: 0px;
 }
 
 .float{
@@ -75,15 +76,35 @@ p{
     float: left;
 }
 
-.middle{
-    background-color: rgb(170, 158, 46);
-}
 
 .right{
     float:right;
     clear: left;
 }
 
-.haf{
+.half{
     width: 50%;
+}
+
+.parent-row{
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.weather{
+    width: 1160%;
+    margin: 0px 10%;
+    background-color: rgb(225, 228, 228);
+}
+.form{
+    width: 50%;
+    margin: 0px auto;
+}
+
+#dropdownMenuButton{
+    border: solid gray 1px;
+}
+
+#search-term{
+    width: 25%
 }
