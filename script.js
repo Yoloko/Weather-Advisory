@@ -4,7 +4,6 @@ $("#search").on("click", function(){
 
 var searchTerm=$("#search-term").val();
 
-
 var querryUrl= "https://restcountries.eu/rest/v2/name/" + searchTerm;
 
 $.ajax({
