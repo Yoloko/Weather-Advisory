@@ -5,7 +5,7 @@
 
 #flag{
 
-    width: 100%;
+    width: 50%;
     height: auto;
 }
 
@@ -52,6 +52,59 @@ p{
 }
 
 .container{
-    margin-bottom: 20%;
-    margin-top: 5%;
+    /* margin-bottom: 20%;
+    margin-top: 5%; */
+    margin: 0% auto;
+}
+
+.history{
+    height: 100%;
+    background-color: rgb(225, 228, 228);
+
+}
+.articles{
+    height: 100%;
+    background-color: rgb(225, 228, 228);
+    margin-right: 0px;
+}
+
+.float{
+    float: left;
+}
+
+.child{
+    float: left;
+}
+
+
+.right{
+    float:right;
+    clear: left;
+}
+
+.half{
+    width: 50%;
+}
+
+.parent-row{
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.weather{
+    width: 1160%;
+    margin: 0px 10%;
+    background-color: rgb(225, 228, 228);
+}
+.form{
+    width: 50%;
+    margin: 0px auto;
+}
+
+#dropdownMenuButton{
+    border: solid gray 1px;
+}
+
+#search-term{
+    width: 25%
 }
