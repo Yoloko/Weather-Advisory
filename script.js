@@ -113,6 +113,41 @@ $.ajax({
     });
 
 
+
+    
+    var searchTerm = response[0].name + " travel";
+    getRequest(searchTerm);
+
+
+
+function getRequest(searchTerm) {
+var url = 'https://www.googleapis.com/youtube/v3/search';
+var params = {
+    part: 'snippet',
+    key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',
+    q: searchTerm
+};
+
+$.getJSON(url, params, showResults);
+
+
+}
+
+function showResults(results) {
+var html = "";
+var entries = results.items;
+console.log(entries);
+$.each(entries, function (index, value) {
+    var title = value.snippet.title;
+    var thumbnail = value.snippet.thumbnails.default.url;
+    html += '<p class="videoP">' + title + '</p>';
+    html += "<a target = '_blank' href = https://www.youtube.com/watch?v="+value.id.videoId + ' ><img  class="videosImg" src =' +value.snippet.thumbnails.default.url+'></a>';
+}); 
+$("#videos").text("Videos");
+$('.search-results').html(html);
+console.log(results);
+}
+
 })
 
   
