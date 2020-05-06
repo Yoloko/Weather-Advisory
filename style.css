@@ -5,7 +5,7 @@
 
 #flag{
 
-    width: 50%;
+    width: 100%;
     height: auto;
 }
 
@@ -52,61 +52,30 @@ p{
 }
 
 .container{
-
-    /* margin-bottom: 20%;
-    margin-top: 5%; */
-    margin: 0% auto;
+    margin-bottom: 20%;
+    margin-top: 5%;
 }
 
-.history{
-    height: 100%;
-    background-color: rgb(225, 228, 228);
-
-}
-.articles{
-    height: 100%;
-    background-color: rgb(225, 228, 228);
-    margin-right: 0px;
-}
-
-.float{
-    float: left;
-}
-
-.child{
-    float: left;
+.videoP{
+    margin-top: 20px;
+    background-color:rgba(245, 11, 34, 0.5);
 }
 
 
-.right{
-    float:right;
-    clear: left;
+.videosImg{
+    height: auto;
+    width: 30%;
+    transition: transform .2s;
+
 }
 
-.half{
-    width: 50%;
+.videosImg:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
 }
 
-.parent-row{
-    overflow: hidden;
-    margin: 0px auto;
+#videoCard{
+    margin-top: 50px;
+    text-align: center;
 }
-
-.weather{
-    width: 1160%;
-    margin: 0px 10%;
-    background-color: rgb(225, 228, 228);
-}
-.form{
-    width: 50%;
-    margin: 0px auto;
-}
-
-#dropdownMenuButton{
-    border: solid gray 1px;
-}
-
-#search-term{
-    width: 25%
-}
-

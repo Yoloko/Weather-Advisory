@@ -1,8 +1,11 @@
 
 
-$("#search").on("click", function(){
+$("#search").on("click", function(event){
 
-var searchTerm=$("#search-term").val();
+    event.preventDefault();
+
+var searchTerm=$("#searchTerm").val();
+
 
 var querryUrl= "https://restcountries.eu/rest/v2/name/" + searchTerm;
 
@@ -113,43 +116,147 @@ $.ajax({
 
 
 
-    
-    var searchTerm = response[0].name + " travel";
-    getRequest(searchTerm);
 
+
+
+   
+        var searchTerm = response[0].name + " travel";
+        getRequest(searchTerm);
+  
 
 
 function getRequest(searchTerm) {
-var url = 'https://www.googleapis.com/youtube/v3/search';
-var params = {
-    part: 'snippet',
-    key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',
-    q: searchTerm
-};
+    var url = 'https://www.googleapis.com/youtube/v3/search';
+    var params = {
+        part: 'snippet',
+        key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',
+        q: searchTerm
+    };
+  
+    $.getJSON(url, params, showResults);
 
-$.getJSON(url, params, showResults);
-
-
+    
 }
 
 function showResults(results) {
-var html = "";
-var entries = results.items;
-console.log(entries);
-$.each(entries, function (index, value) {
-    var title = value.snippet.title;
-    var thumbnail = value.snippet.thumbnails.default.url;
-    html += '<p class="videoP">' + title + '</p>';
-    html += "<a target = '_blank' href = https://www.youtube.com/watch?v="+value.id.videoId + ' ><img  class="videosImg" src =' +value.snippet.thumbnails.default.url+'></a>';
-}); 
-$("#videos").text("Videos");
-$('.search-results').html(html);
-console.log(results);
+    var html = "";
+    var entries = results.items;
+    console.log(entries);
+    $.each(entries, function (index, value) {
+        var title = value.snippet.title;
+        var thumbnail = value.snippet.thumbnails.default.url;
+        html += '<p class="videoP">' + title + '</p>';
+        html += "<a target = '_blank' href = https://www.youtube.com/watch?v="+value.id.videoId + ' ><img  class="videosImg" src =' +value.snippet.thumbnails.default.url+'></a>';
+    }); 
+    $("#videos").text("Videos");
+    $('.search-results').html(html);
+    console.log(results);
 }
+
+   
+
+    // var countryCode=response[0].alpha2Code;
+    
+    // var travelUrl="https://www.travel-advisory.info/api?countrycode=" + countryCode;
+
+     
+    // $.ajax({
+    //     url: travelUrl,
+    //     method:"GET"
+    // }).then(function(res){
+        
+    //     var countryCode=countryCode;
+    //     console.log(res);
+    //      console.log(res.data.advisory.score);
+        
+         
+       
+    // });
+
+
+
+
+
+
+
+
+
 
 })
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://ajayakv-rest-countries-v1.p.rapidapi.com/rest/v1/all",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "ajayakv-rest-countries-v1.p.rapidapi.com",
+// 		"x-rapidapi-key": "a0f80e577emsha4706c37533c66bp1a1d81jsn8773d277f381"
+// 	}
+// }
+
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+// });
+
+
+
+
+
+
+
+// // var searchurl="https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=";
+
+// // url=searchurl + searchTerm;
+// //var querryUrl="https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extract&titles=" + searchTerm + "&redirects=true";
+// // console.log(url);
+
+// $.ajax({
+
+//     // url:searchurl + searchTerm,
+//     // dataType:"jsonp",
+//     // method: "GET",
+
+// url: "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extract&titles=" + searchTerm + "&redirects=true",
+
+//  headers:{
+
+// "Access-Control-Allow-Origin": "*",
+// "Content-Type": "application/json"
+// },
+// method: "GET",
+// dataType:"jsonp",
+// data:'',
+
+// success: function(data){
+//   dataNum=Object.keys(data.query.pages)[0];
+//   $("#data").empty();
+//   $("#data").append(`<h1>${data.query.pages[dataNum].title}</h1>`);
+//   console.log(data.query.pages[dataNum].title);
+//   $("#data").append(data.query.pages[dataNum].extract);
+//   console.log(data);
+// }
+
+// });
+
+    
 });
 
 
@@ -168,3 +275,22 @@ console.log(results);
 
 
 
+
+
+
+
+
+
+// var queeryUrl="https://www.travel-advisory.info/api?countrycode=AD"
+
+// $.ajax({
+ 
+//     url: queeryUrl,
+//     method:"GET"
+// }).then(function(response){
+
+// console.log(response);
+// console.log(response.data.AD.advisory.score);
+// console.log(response.data.AD.advisory.message);
+
+// });
