@@ -61,7 +61,7 @@ $("#search").on("click", function (event) {
 
         var lat=response[0].latlng[0];
         var lng=response[0].latlng[1];
-        initMap(lat,lng);
+       initMap(lat,lng);
 
     })
 
@@ -77,7 +77,7 @@ function renderCountryData(response){
     $("#currencies").text("Currency : " + response[0].currencies[0].name);
 }
 
-function renderWeatherData(reponse){
+function renderWeatherData(response){
     $("#temp").text((response.main.temp).toFixed(0) + "°F");
     $("#city").text(response.name + ", ");
     $(".imgP").html(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
