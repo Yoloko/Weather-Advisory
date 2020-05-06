@@ -58,6 +58,11 @@ $("#search").on("click", function (event) {
 
         showResults(results);
 
+
+        var lat=response[0].latlng[0];
+        var lng=response[0].latlng[1];
+        initMap(lat,lng);
+
     })
 
 });
@@ -142,3 +147,13 @@ function getRequest(searchTerm) {
 //         console.log("success");
 //     }
 // }
+function initMap(latOne,LngOne) {
+    // The location of Uluru
+    var uluru = {lat: latOne, lng: LngOne};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  
+    }
