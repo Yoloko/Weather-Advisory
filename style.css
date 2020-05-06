@@ -79,3 +79,8 @@ p{
     margin-top: 50px;
     text-align: center;
 }
+
+.size {
+    height: 300px;
+    width:400px;
+};
