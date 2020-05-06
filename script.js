@@ -153,7 +153,9 @@ function showResults(results) {
     console.log(results);
 }
 
-   
+var lat=response[0].latlng[0];
+var lng=response[0].latlng[1];
+initMap(lat,lng);
 
     // var countryCode=response[0].alpha2Code;
     
@@ -260,7 +262,16 @@ function showResults(results) {
 });
 
 
-
+function initMap(latOne,LngOne) {
+    // The location of Uluru
+    var uluru = {lat: latOne, lng: LngOne};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  
+    }
 
 
 
