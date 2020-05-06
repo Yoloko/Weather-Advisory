@@ -11,7 +11,7 @@
 
 ## Summary
 
-We created a webpage where we connect with sixgit add . APIs to present useful information to the user about countries.
+We created a webpage where we connect with six APIs to present useful information to the user about countries.
 
 ## Motivation
 
