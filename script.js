@@ -1,15 +1,20 @@
+var searchTerm = "";
 
+makeAjaxCalls();
 
-$("#search").on("click", function (event) {
-
-    event.preventDefault();
-
-    var searchTerm = $("#searchTerm").val();
-
-
+function makeAjaxCalls(){
+    if(!searchTerm){
+        searchTerm = 'Brazil'; //default country name 
+    }else{
+        
+    searchTerm = $("#searchTerm").val();
+    console.log("seachTerm :" + searchTerm);
+    
+    }
 
     var querryUrl = "https://restcountries.eu/rest/v2/name/" + searchTerm;
 
+    
     $.ajax({
 
         url: querryUrl,
@@ -26,23 +31,26 @@ $("#search").on("click", function (event) {
             method: "GET"
         }).then(function (response) {
             renderWeatherData(response);
-            });
+        });
+        var countryCovid = response[0].name;
 
+        var countryCovid=response[0].name;
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://coronavirus-map.p.rapidapi.com/v1/summary/region?region=" + response[0].name,
+            "url": "https://coronavirus-map.p.rapidapi.com/v1/summary/region?region=" + countryCovid,
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "coronavirus-map.p.rapidapi.com",
                 "x-rapidapi-key": "a0f80e577emsha4706c37533c66bp1a1d81jsn8773d277f381"
             }
         }
-
+    
         $.ajax(settings).done(function (res) {
             renderCovidData(res)
         });
-
+        
+        
         var unsplashCountry = response[0].name;
         var unsplashURL = "https://api.unsplash.com/search/photos/?client_id=I8U6GFIB0XafF8mMxgMsXBxjSO8LW-kqAs5EJfiO6hc&query=" + unsplashCountry;
 
@@ -59,6 +67,20 @@ $("#search").on("click", function (event) {
         showResults(results);
 
     })
+}
+
+$("#search").on("click", function (event) {
+
+    // event.preventDefault();
+
+    if(!searchTerm){
+        //!! animate THIS
+        $('#validation').html('!Please enter a valid country name');
+        return;
+    }else{
+     makeAjaxCalls();
+    }
+    
 
 });
 
@@ -115,7 +137,6 @@ function renderCovidData(res){
 function showResults(results) {
     var html = "";
     var entries = results.items;
-    console.log(entries);
     $.each(entries, function (index, value) {
         var title = value.snippet.title;
         var thumbnail = value.snippet.thumbnails.default.url;
@@ -124,21 +145,15 @@ function showResults(results) {
     });
     $("#videos").text("Videos");
     $('.search-results').html(html);
-    console.log(results);
 }
 
 function getRequest(searchTerm) {
-    var url = 'https://www.googleapis.com/youtube/v3/search';
+    // var url = 'https://www.googleapis.com/youtube/v3/search'; 
     var params = {
         part: 'snippet',
-        key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',
+        key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',/// requests excceeeded get another code 
         q: searchTerm
     };
 
     $.getJSON(url, params, showResults);
 }
-// function validateSearch(input){
-//     if(!input){
-//         console.log("success");
-//     }
-// }
