@@ -1,7 +1,69 @@
-#searchTerm{
+html, body{
+    height: 100%;
+    width: 100%;
 
-    width: 80%;
 }
+#home{
+    background: url(./ball.jpg) no-repeat center center fixed;
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    
+
+}
+.landing-text{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.formCard{
+    background-color: transparent;
+    border: none;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.form-control{
+    background-color: transparent;
+    border: 1px solid #28A745 ;
+}
+
+.exploreH3{
+    color: #218838;
+    font-family: 'Pacifico', cursive;
+    
+}
+
+.exploreH1{
+    color: white;
+    font-family: 'Anton', sans-serif;
+}
+
+.padding{
+    padding: 80px 0;
+
+}
+
+#fixed{
+    background: url(./person.jpg) no-repeat center center fixed;
+    display: table;
+    height: 60%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
 
 #flag{
 
