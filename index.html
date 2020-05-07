@@ -2,30 +2,47 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 
-  <title>Country Search</title>
-
+    <title>Web Travelers</title>
 </head>
 
 <body>
-    <div class="container">
 
-        <h1>Country Search</h1>
-    <input type="text" id="searchTerm">
-    <button id="search" class="btn btn-primary">Submit</button>
+    <div id="home">
+        <div class="landing-text">
+            <h3 class="exploreH3">Explore the country</h3>
+            <h1 class="exploreH1">Discover Great Places</h1>
+            <form class="card card-sm formCard">
+                <div class="card-body row no-gutters align-items-center">
+                    
+                    <!--end of col-->
+                    <div class="col">
+                        <input id="searchTerm" class="form-control form-control-lg form-control-borderless" type="search"
+                            placeholder="Enter country name">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button id="search" class="btn btn-lg btn-success" type="submit">Search</button>
+                        <button id="ramdom" class="btn btn-lg btn-success" type="submit">Random</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
 
+        </div>
+    </div>
 
-    <div class="card countryCard">
-
-      <div class="card-header text-center">
+    <div class="card-header text-center">
         <h1 id="countryName"></h1>
       </div>
 
@@ -64,90 +81,57 @@
 
 
       </div>
-
-
-
-                    <div class="col">
-                        <p id="region"></p>
-                        <p id="capital"></p>
-                        <p id="languages"></p>
-                        <p id="population"></p>
-                        <p id="currencies"></p>
-
+    <div id="fixed">
     </div>
-
 
     <div class="card covidCard">
-      <div class="card-header" id="covidHeader">
-        <h1 id="covidH1"></h1>
+        <div class="card-header" id="covidHeader">
+          <h1 id="covidH1"></h1>
+        </div>
+        <div class="card-body">
+          <p class="active_cases"></p>
+          <p class="critical"></p>
+          <p class="death_ratio"></p>
+          <p class="deaths"></p>
+          <p class="recovered"></p>
+          <p class="recovery_ratio"></p>
+          <p class="tested"></p>
+          <p class="total_cases"></p>
+  
+        </div>
       </div>
-      <div class="card-body">
-        <p class="active_cases"></p>
-        <p class="critical"></p>
-        <p class="death_ratio"></p>
-        <p class="deaths"></p>
-        <p class="recovered"></p>
-        <p class="recovery_ratio"></p>
-        <p class="tested"></p>
-        <p class="total_cases"></p>
 
-      </div>
+      <div id="map"></div>
+
     </div>
+
     <div class="card" id="ImagesCard">
 
-      <div class="card-header" id="ImagesHeader">
-        <h1 id="Images"></h1>
-      </div>
-
-      <div class="card-body">
-        <div id="results"></div>
-      </div>
-    </div>
-
-    <div class="card" id="videoCard">
-      <div class="card-header">
-        <h1 id="videos"></h1>
-      </div>
-
-      <div class="card-body search-results">
-
-      </div>
-
-
-    </div>
-
-
-            <div class="card-body">
-                <div id="results"></div>
-            </div>
+        <div class="card-header" id="ImagesHeader">
+          <h1 id="Images"></h1>
         </div>
-
-        <div class="card" id="videoCard">
-            <div class="card-header">
-                <h1 id="videos"></h1>
-            </div>
-
-  </div>
-
-  <div class="card">
-    <div class="card-header"><h2>Articles</h2></div>
-    <div id="articles" class="card-body"></div>
-  </div>
+  
+        <div class="card-body">
+          <div id="results"></div>
+        </div>
+      </div>
 
 
 
+      <div class="card" id="videoCard">
+        <div class="card-header">
+          <h1 id="videos"></h1>
+        </div>
+  
+        <div class="card-body search-results">
+  
+        </div>
+  
+  
+      </div>
 
-        <div id="map"></div>
 
-  </div>
-
-
-
-   
-        <div id="map"></div>
-    </div>
-
-    <div class="card">
+      <div class="card">
         <div class="card-header">
             <h2>Articles</h2>
         </div>
@@ -157,18 +141,33 @@
 
 
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE&callback=initMap">
         </script>
-
     <script src="script.js"></script>
+</body>
+
 </body>
 
 </html>
