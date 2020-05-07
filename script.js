@@ -1,11 +1,14 @@
 
+
 $("#search").on("click", function (event) {
 
     event.preventDefault();
 
     var searchTerm = $("#searchTerm").val();
+
     var country = $("#searchTerm").val();
     newsSearch(country);
+
 
 
 
@@ -59,6 +62,9 @@ $("#search").on("click", function (event) {
 
         showResults(results);
 
+        var lat=response[0].latlng[0];
+        var lng=response[0].latlng[1];
+        initMap(lat,lng);
 
         var lat=response[0].latlng[0];
         var lng=response[0].latlng[1];
@@ -96,6 +102,7 @@ function renderImages(resp){
         $("#results").append(result);
     });
 }
+
 
 function renderCovidData(res){
     $("#covidH1").text("Covid 19");
@@ -235,3 +242,4 @@ function initMap(latOne,LngOne) {
 // console.log(response.data.AD.advisory.message);
 
 // });
+
