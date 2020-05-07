@@ -7,6 +7,10 @@ $("#search").on("click", function (event) {
     var searchTerm = $("#searchTerm").val();
     newsSearch(searchTerm);
 
+    var country = $("#searchTerm").val();
+    newsSearch(country);
+
+
 
 
     var querryUrl = "https://restcountries.eu/rest/v2/name/" + searchTerm;
@@ -59,6 +63,9 @@ $("#search").on("click", function (event) {
 
         showResults(results);
 
+        var lat=response[0].latlng[0];
+        var lng=response[0].latlng[1];
+        initMap(lat,lng);
 
         var lat=response[0].latlng[0];
         var lng=response[0].latlng[1];
@@ -96,6 +103,7 @@ function renderImages(resp){
         $("#results").append(result);
     });
 }
+
 
 function renderCovidData(res){
     $("#covidH1").text("Covid 19");
@@ -203,4 +211,16 @@ function initMap(latOne,LngOne) {
     };
     
 
+// var queeryUrl="https://www.travel-advisory.info/api?countrycode=AD"
 
+// $.ajax({
+
+//     url: queeryUrl,
+//     method:"GET"
+// }).then(function(response){
+
+// console.log(response);
+// console.log(response.data.AD.advisory.score);
+// console.log(response.data.AD.advisory.message);
+
+// });
