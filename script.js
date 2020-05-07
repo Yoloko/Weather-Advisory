@@ -5,8 +5,7 @@ $("#search").on("click", function (event) {
     event.preventDefault();
 
     var searchTerm = $("#searchTerm").val();
-    var country = $("#searchTerm").val();
-    newsSearch(country);
+    newsSearch(searchTerm);
 
 
 
@@ -160,10 +159,10 @@ function initMap(latOne,LngOne) {
   
     }
 
-    function newsSearch(country) {
+    function newsSearch(searchTerm) {
         var api = "https://newsapi.org/v2/everything?q=";
         var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
-        var queryURL = api + country + apiKey;
+        var queryURL = api + searchTerm + apiKey;
 
         console.log(queryURL);
         $.ajax({
