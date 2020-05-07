@@ -174,7 +174,7 @@ function initMap(latOne,LngOne) {
             var card = $("<div>");
             card.addClass("card-body");
 
-            for (i = 0; i < 10; i++) {
+            for (i = 0; i < 6; i++) {
                 console.log('test')
                 var NYTarticles = response.articles[i];
                 console.log(NYTarticles)
