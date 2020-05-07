@@ -5,6 +5,8 @@ $("#search").on("click", function (event) {
     event.preventDefault();
 
     var searchTerm = $("#searchTerm").val();
+    var country = $("#searchTerm").val();
+    newsSearch(country);
 
 
 
@@ -157,3 +159,49 @@ function initMap(latOne,LngOne) {
     var marker = new google.maps.Marker({position: uluru, map: map});
   
     }
+
+    function newsSearch(country) {
+        var api = "https://newsapi.org/v2/everything?q=";
+        var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
+        var queryURL = api + country + apiKey;
+
+        console.log(queryURL);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            var card = $("<div>");
+            card.addClass("card-body");
+
+            for (i = 0; i < 10; i++) {
+                console.log('test')
+                var NYTarticles = response.articles[i];
+                console.log(NYTarticles)
+
+
+
+                var title = $("<h1>");
+                var url = $("<div>");
+                var img = $("<img class='size'>");
+                img.addClass("size");
+
+
+                title.append(NYTarticles.title);
+                img.attr("src", NYTarticles.urlToImage);
+                url.append("<a href=>" + NYTarticles.url);
+
+                card.append(title);
+                card.append(img);
+                card.append(url);
+
+                $("#articles").append(card);
+
+            }
+        });
+        
+    };
+    
+
+
