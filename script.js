@@ -1,20 +1,20 @@
-
+var country = 'Brazil';
+ajaxCalls(country);
 
 $("#search").on("click", function (event) {
 
-    event.preventDefault();
+    country = $("#searchTerm").val();
+    ajaxCalls(country);
 
-    var searchTerm = $("#searchTerm").val();
+});
+
+function ajaxCalls(country){
+    // event.preventDefault();
+
     var country = $("#searchTerm").val();
     newsSearch(country);
 
-    var country = $("#searchTerm").val();
-    newsSearch(country);
-
-
-
-
-    var querryUrl = "https://restcountries.eu/rest/v2/name/" + searchTerm;
+    var querryUrl = "https://restcountries.eu/rest/v2/name/" + country;
 
     $.ajax({
 
@@ -73,8 +73,7 @@ $("#search").on("click", function (event) {
         initMap(lat,lng);
 
     })
-
-});
+}
 
 function renderCountryData(response){
     $("#countryName").text(response[0].name);
@@ -143,7 +142,7 @@ function showResults(results) {
 }
 
 function getRequest(searchTerm) {
-    var url = 'https://www.googleapis.com/youtube/v3/search';
+    // var url = 'https://www.googleapis.com/youtube/v3/search';
     var params = {
         part: 'snippet',
         key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',
@@ -152,11 +151,8 @@ function getRequest(searchTerm) {
 
     $.getJSON(url, params, showResults);
 }
-// function validateSearch(input){
-//     if(!input){
-//         console.log("success");
-//     }
-// }
+
+
 function initMap(latOne,LngOne) {
     // The location of Uluru
     var uluru = {lat: latOne, lng: LngOne};
@@ -166,21 +162,25 @@ function initMap(latOne,LngOne) {
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({position: uluru, map: map});
   
-    }
+}
 
     function newsSearch(country) {
         var api = "https://newsapi.org/v2/everything?q=";
         var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
         var queryURL = api + country + apiKey;
 
-        console.log(queryURL);
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
-
-            var card = $("<div>");
+             
+            renderNews(response);
+        });
+        
+    };
+    
+    function renderNews(response){
+        var card = $("<div>");
             card.addClass("card-body");
 
             for (i = 0; i < 10; i++) {
@@ -205,12 +205,8 @@ function initMap(latOne,LngOne) {
                 card.append(url);
 
                 $("#articles").append(card);
-
             }
-        });
-        
-    };
-    
+    }
 
 // var queeryUrl="https://www.travel-advisory.info/api?countrycode=AD"
 
@@ -224,4 +220,3 @@ function initMap(latOne,LngOne) {
 // console.log(response.data.AD.advisory.score);
 // console.log(response.data.AD.advisory.message);
 
-// });
