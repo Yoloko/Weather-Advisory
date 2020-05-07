@@ -5,6 +5,8 @@ $("#search").on("click", function (event) {
     event.preventDefault();
 
     var searchTerm = $("#searchTerm").val();
+    var country = $("#searchTerm").val();
+    newsSearch(country);
 
     var country = $("#searchTerm").val();
     newsSearch(country);
@@ -210,25 +212,6 @@ function initMap(latOne,LngOne) {
     };
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // var queeryUrl="https://www.travel-advisory.info/api?countrycode=AD"
 
 // $.ajax({
@@ -242,4 +225,3 @@ function initMap(latOne,LngOne) {
 // console.log(response.data.AD.advisory.message);
 
 // });
-
