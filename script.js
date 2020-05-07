@@ -1,4 +1,4 @@
-var country = 'Brazil';
+var country = 'Russia';
 ajaxCalls(country);
 
 $("#search").on("click", function (event) {
@@ -10,8 +10,6 @@ $("#search").on("click", function (event) {
 
 function ajaxCalls(country){
     // event.preventDefault();
-
-    var country = $("#searchTerm").val();
     newsSearch(country);
 
     var querryUrl = "https://restcountries.eu/rest/v2/name/" + country;
@@ -207,16 +205,3 @@ function initMap(latOne,LngOne) {
                 $("#articles").append(card);
             }
     }
-
-// var queeryUrl="https://www.travel-advisory.info/api?countrycode=AD"
-
-// $.ajax({
-
-//     url: queeryUrl,
-//     method:"GET"
-// }).then(function(response){
-
-// console.log(response);
-// console.log(response.data.AD.advisory.score);
-// console.log(response.data.AD.advisory.message);
-
