@@ -1,0 +1,126 @@
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 0% auto;
+    width: 30px; 
+    height: 10px;
+    padding: 20px;
+    border: 1px solid #888;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+#searchTerm{
+    width: 80%;
+}
+
+#flag{
+
+    width: 100%;
+    height: auto;
+}
+
+.countryCard{
+
+    margin-top: 100px;
+}
+
+#temp{
+    margin-top: 50px;
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.imgCol{
+    text-align: center;
+}
+
+.description{
+    margin-left: 20px;
+    font-size: 20px;
+    margin-bottom: -10px;
+}
+
+p{
+    font-size: 20px;
+}
+
+#covidH1, #Images{
+    text-align: center;
+}
+.redHead{
+    background-color: red;
+}
+
+.greenHead{
+    background-color: green;
+}
+
+.covidCard, #ImagesCard{
+    margin-top: 50px;
+}
+
+.container{
+    margin-bottom: 20%;
+    margin-top: 5%;
+}
+
+.videoP{
+    margin-top: 20px;
+    background-color:rgba(245, 11, 34, 0.5);
+}
+
+
+.videosImg{
+    height: auto;
+    width: 30%;
+    transition: transform .2s;
+
+}
+
+.videosImg:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+}
+
+#videoCard{
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+#map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+   }
+
+
+.size {
+    height: 300px;
+    width:400px;
+};  
+

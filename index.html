@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assets/style.css">
 
@@ -17,6 +17,16 @@
 </head>
 
 <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Please Enter a valid country name</p>
+        </div>
+
+    </div>
 
     <div id="home">
         <div class="landing-text">
@@ -24,11 +34,11 @@
             <h1 class="exploreH1">Discover Great Places</h1>
             <form class="card card-sm formCard">
                 <div class="card-body row no-gutters align-items-center">
-                    
+
                     <!--end of col-->
                     <div class="col">
-                        <input id="searchTerm" class="form-control form-control-lg form-control-borderless" type="search"
-                            placeholder="Enter country name">
+                        <input id="searchTerm" class="form-control form-control-lg form-control-borderless"
+                            type="search" placeholder="Enter country name">
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
@@ -44,119 +54,99 @@
 
     <div class="card-header text-center">
         <h1 id="countryName"></h1>
-      </div>
+    </div>
 
-      <div class="card-body">
+    <div class="card-body">
         <div class="row">
-          <div class="col">
-            <div class="row">
-              <img id="flag" src="" alt="">
+            <div class="col">
+                <div class="row">
+                    <img id="flag" src="" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p id="temp"></p>
+                    </div>
+                    <div class="col-4 imgCol">
+                        <p class="imgP"></p>
+                        <p class="description"></p>
+                    </div>
+                    <div class="col-4">
+                        <p id="city"></p>
+                        <p class="currentDate"></p>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-              <div class="col-4">
-                <p id="temp"></p>
-              </div>
-              <div class="col-4 imgCol">
-                <p class="imgP"></p>
-                <p class="description"></p>
-              </div>
-              <div class="col-4">
-                <p id="city"></p>
-                <p class="currentDate"></p>
-              </div>
+
+
+            <div class="col">
+                <p id="region"></p>
+                <p id="capital"></p>
+                <p id="languages"></p>
+                <p id="population"></p>
+                <p id="currencies"></p>
+
             </div>
-          </div>
-
-
-          <div class="col">
-            <p id="region"></p>
-            <p id="capital"></p>
-            <p id="languages"></p>
-            <p id="population"></p>
-            <p id="currencies"></p>
-
-          </div>
         </div>
 
 
 
-      </div>
+    </div>
     <div id="fixed">
     </div>
 
     <div class="card covidCard">
         <div class="card-header" id="covidHeader">
-          <h1 id="covidH1"></h1>
+            <h1 id="covidH1"></h1>
         </div>
         <div class="card-body">
-          <p class="active_cases"></p>
-          <p class="critical"></p>
-          <p class="death_ratio"></p>
-          <p class="deaths"></p>
-          <p class="recovered"></p>
-          <p class="recovery_ratio"></p>
-          <p class="tested"></p>
-          <p class="total_cases"></p>
-  
-        </div>
-      </div>
+            <p class="active_cases"></p>
+            <p class="critical"></p>
+            <p class="death_ratio"></p>
+            <p class="deaths"></p>
+            <p class="recovered"></p>
+            <p class="recovery_ratio"></p>
+            <p class="tested"></p>
+            <p class="total_cases"></p>
 
-      <div id="map"></div>
+        </div>
+    </div>
+
+    <div id="map"></div>
 
     </div>
 
     <div class="card" id="ImagesCard">
 
         <div class="card-header" id="ImagesHeader">
-          <h1 id="Images"></h1>
+            <h1 id="Images"></h1>
         </div>
-  
+
         <div class="card-body">
-          <div id="results"></div>
+            <div id="results"></div>
         </div>
-      </div>
+    </div>
 
 
 
-      <div class="card" id="videoCard">
+    <div class="card" id="videoCard">
         <div class="card-header">
-          <h1 id="videos"></h1>
+            <h1 id="videos"></h1>
         </div>
-  
+
         <div class="card-body search-results">
-  
+
         </div>
-  
-  
-      </div>
 
 
-      <div class="card">
+    </div>
+
+
+    <div class="card">
         <div class="card-header">
             <h2>Articles</h2>
         </div>
         <div id="articles" class="card-body"></div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

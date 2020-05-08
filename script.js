@@ -1,15 +1,42 @@
-var country = 'Russia';
+var regex = /[\d.&\/+-_]/; // regex for invalid input
+var country = 'China';
 ajaxCalls(country);
 
+
+
 $("#search").on("click", function (event) {
+    event.preventDefault();
 
     country = $("#searchTerm").val();
+    if (regex.test(country) || !country) {
+        invalidAlert();
+    }
     ajaxCalls(country);
 
 });
 
-function ajaxCalls(country){
-    // event.preventDefault();
+
+function invalidAlert() {
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // btn.onclick = function () {
+        modal.style.display = "block";
+    // }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function ajaxCalls(country) {
     newsSearch(country);
 
     var querryUrl = "https://restcountries.eu/rest/v2/name/" + country;
@@ -30,7 +57,7 @@ function ajaxCalls(country){
             method: "GET"
         }).then(function (response) {
             renderWeatherData(response);
-            });
+        });
 
         var settings = {
             "async": true,
@@ -62,18 +89,18 @@ function ajaxCalls(country){
 
         showResults(results);
 
-        var lat=response[0].latlng[0];
-        var lng=response[0].latlng[1];
-        initMap(lat,lng);
+        var lat = response[0].latlng[0];
+        var lng = response[0].latlng[1];
+        initMap(lat, lng);
 
-        var lat=response[0].latlng[0];
-        var lng=response[0].latlng[1];
-        initMap(lat,lng);
+        var lat = response[0].latlng[0];
+        var lng = response[0].latlng[1];
+        initMap(lat, lng);
 
     })
 }
 
-function renderCountryData(response){
+function renderCountryData(response) {
     $("#countryName").text(response[0].name);
     $("#flag").attr("src", response[0].flag);
     $("#region").text("Region : " + response[0].region);
@@ -83,7 +110,7 @@ function renderCountryData(response){
     $("#currencies").text("Currency : " + response[0].currencies[0].name);
 }
 
-function renderWeatherData(response){
+function renderWeatherData(response) {
     $("#temp").text((response.main.temp).toFixed(0) + "°F");
     $("#city").text(response.name + ", ");
     $(".imgP").html(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
@@ -92,7 +119,7 @@ function renderWeatherData(response){
     $(".currentDate").text(timeUTC.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
 }
 
-function renderImages(resp){
+function renderImages(resp) {
     $("#Images").text("Images");
     $("#results").empty();
     resp.results.forEach(photo => {
@@ -103,7 +130,7 @@ function renderImages(resp){
 }
 
 
-function renderCovidData(res){
+function renderCovidData(res) {
     $("#covidH1").text("Covid 19");
     $(".active_cases").text("Active Cases : " + res.data.summary.active_cases);
     $(".critical").text("Critical : " + res.data.summary.critical);
@@ -151,57 +178,53 @@ function getRequest(searchTerm) {
 }
 
 
-function initMap(latOne,LngOne) {
+function initMap(latOne, LngOne) {
     // The location of Uluru
-    var uluru = {lat: latOne, lng: LngOne};
+    var uluru = { lat: latOne, lng: LngOne };
     // The map, centered at Uluru
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: uluru});
+        document.getElementById('map'), { zoom: 4, center: uluru });
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
-  
+    var marker = new google.maps.Marker({ position: uluru, map: map });
+
 }
 
-    function newsSearch(country) {
-        var api = "https://newsapi.org/v2/everything?q=";
-        var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
-        var queryURL = api + country + apiKey;
+function newsSearch(country) {
+    var api = "https://newsapi.org/v2/everything?q=";
+    var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
+    var queryURL = api + country + apiKey;
 
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-             
-            renderNews(response);
-        });
-        
-    };
-    
-    function renderNews(response){
-        var card = $("<div>");
-            card.addClass("card-body");
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
 
-            for (i = 0; i < 10; i++) {
-                console.log('test')
-                var NYTarticles = response.articles[i];
-                console.log(NYTarticles)
+        renderNews(response);
+    });
 
+};
 
+function renderNews(response) {
+    var card = $("<div>");
+    card.addClass("card-body");
 
-                var title = $("<h1>");
-                var url = $("<div>");
-                var img = $("<img class='size'>");
-                img.addClass("size");
+    for (i = 0; i < 10; i++) {
+        var NYTarticles = response.articles[i];
+
+        var title = $("<h1>");
+        var url = $("<div>");
+        var img = $("<img class='size'>");
+        img.addClass("size");
 
 
-                title.append(NYTarticles.title);
-                img.attr("src", NYTarticles.urlToImage);
-                url.append("<a href=>" + NYTarticles.url);
+        title.append(NYTarticles.title);
+        img.attr("src", NYTarticles.urlToImage);
+        url.append("<a href=>" + NYTarticles.url);
 
-                card.append(title);
-                card.append(img);
-                card.append(url);
+        card.append(title);
+        card.append(img);
+        card.append(url);
 
-                $("#articles").append(card);
-            }
+        $("#articles").append(card);
     }
+}
