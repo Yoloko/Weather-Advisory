@@ -1,4 +1,4 @@
-var regex = /[\d.&\/+-_]/; // regex for invalid input
+var regex = /[\d\.&\/\+\-\_]/; // regex for invalid input
 var country = 'China';
 ajaxCalls(country);
 
