@@ -1,3 +1,22 @@
+var countries = [
+    "United States of America",
+    "France",
+    "Greece",
+    "Turkey",
+    "Portugal",
+    "Canada",
+    "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas (the)", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia (Plurinational State of)", "Bonaire, Sint Eustatius and Saba", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory (the)", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Cayman Islands (the)", "Central African Republic (the)", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands (the)", "Colombia", "Comoros (the)", "Congo (the Democratic Republic of the)", "Congo (the)", "Cook Islands (the)", "Costa Rica", "Croatia", "Cuba", "Curaçao", "Cyprus", "Czechia", "Côte d'Ivoire", "Denmark", "Djibouti", "Dominica",
+];
+
+$("#ramdom").on("click", function (event) {
+    event.preventDefault();
+    for (i = 0; i < countries.length; i++) {
+        var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+    };
+    console.log(randomCountry);
+    ajaxCalls(randomCountry);
+});
+
 var country = 'Turkey';
 ajaxCalls(country);
 
@@ -202,21 +221,23 @@ function renderNews(response) {
     var card = $("<div>");
     card.addClass("card-body");
 
+    $("#articles").empty();
+
     for (i = 0; i < 5; i++) {
         console.log('test')
         var NYTarticles = response.articles[i];
         console.log(NYTarticles)
 
-        '<p>' +  + '</p>';
+        '<p>' + + '</p>';
 
         var title = $("<p>");
-        var url = $("<div class='imgDiv'>");
-        
 
-         title.html('<span class="readP">' + NYTarticles.title + '</span>');
-        
-        url.html("<a target = '_blank' href=" + NYTarticles.url + '><img  class="size" src ='+ NYTarticles.urlToImage + '></a>');
-        
+        var url = $("<div class='imgDiv'>");
+
+        title.html('<span class="readP">' + NYTarticles.title + '</span>');
+
+        url.html("<a target = '_blank' href=" + NYTarticles.url + '><img  class="size" src =' + NYTarticles.urlToImage + '></a>');
+
         card.append(title);
         card.append(url);
 
