@@ -2,173 +2,201 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
-  <title>Country Search</title>
+  <link rel="stylesheet" href="./assets/style.css">
 
+  <title>Web Travelers</title>
 </head>
 
 <body>
-    <div class="container">
 
-        <h1>Country Search</h1>
-    <input type="text" id="searchTerm">
-    <button id="search" class="btn btn-primary">Submit</button>
+  <div id="home">
+    <div class="landing-text">
+      <h3 class="exploreH3">Explore the country</h3>
+      <h1 class="exploreH1">Discover Great Places</h1>
+      <form class="card card-sm formCard">
+        <div class="card-body row no-gutters align-items-center">
 
+          
+          <div class="col-12 ">
+            <input id="searchTerm" class="form-control form-control-lg form-control-borderless" type="search"
+              placeholder="Enter country name">
+          </div>
+         
+          <div class="col-12 mt-3">
+            <button id="search" class="btn btn-lg btn-primary" type="submit">Search</button>
+            <button id="ramdom" class="btn btn-lg btn-primary" type="submit">Random</button>
+          </div>
+          
+        </div>
+      </form>
 
+    </div>
+  </div>
+  <div class="container-fluid">
     <div class="card countryCard">
-
-      <div class="card-header text-center">
+      <div class="card-header text-center countryHeader">
         <h1 id="countryName"></h1>
       </div>
 
       <div class="card-body">
         <div class="row">
-          <div class="col">
-            <div class="row">
-              <img id="flag" src="" alt="">
-            </div>
-            <div class="row">
-              <div class="col-4">
+          <div class="col-lg-6 col-sm-12">
+            <img id="flag" src="" alt="">
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <div class="countryTextDiv">
+              <div class="countryTextItems">
+                <p id="capital"></p>
+                <p id="languages"></p>
+                <p id="population"></p>
+                <p id="currencies"></p>
+                <p id="region"></p>
+              </div>
+              <div class="row weather">
+              <div class="col-3">
                 <p id="temp"></p>
               </div>
-              <div class="col-4 imgCol">
+              <div class="col-2 imgCol">
                 <p class="imgP"></p>
                 <p class="description"></p>
               </div>
-              <div class="col-4">
+              <div class="col-7">
                 <p id="city"></p>
                 <p class="currentDate"></p>
               </div>
             </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-sm-12">
+            <div class="card covidCard">
+              <div class="card-header" id="covidHeader">
+                <h1><span></span><i class="fas fa-exclamation-circle pr-5"></span></i> <span id="covidH1"></span> </h1>
+              </div>
+              <div class="card-body">
+                <p class="active_cases"></p>
+                <p class="death_ratio"></p>
+                <p class="deaths"></p>
+                <p class="recovered"></p>
+                <p class="recovery_ratio"></p>
+                <p class="total_cases"></p>
+
+              </div>
+            </div>
+
+
           </div>
 
 
-          <div class="col">
-            <p id="region"></p>
-            <p id="capital"></p>
-            <p id="languages"></p>
-            <p id="population"></p>
-            <p id="currencies"></p>
-
+          <div class="col-lg-6 col-sm-12">
+            <div id="map"></div>
           </div>
         </div>
-
-
-
       </div>
 
 
-
-                    <div class="col">
-                        <p id="region"></p>
-                        <p id="capital"></p>
-                        <p id="languages"></p>
-                        <p id="population"></p>
-                        <p id="currencies"></p>
-
     </div>
+  </div>
 
+  <div id="fixed">
+  </div>
 
-    <div class="card covidCard">
-      <div class="card-header" id="covidHeader">
-        <h1 id="covidH1"></h1>
+  <div class="container-fluid">
+    <div class="card goCard">
+      <div class="card-header goHeader">
+      <h1><i class="fas fa-info-circle info"></i>Before You Go</h1>
       </div>
       <div class="card-body">
-        <p class="active_cases"></p>
-        <p class="critical"></p>
-        <p class="death_ratio"></p>
-        <p class="deaths"></p>
-        <p class="recovered"></p>
-        <p class="recovery_ratio"></p>
-        <p class="tested"></p>
-        <p class="total_cases"></p>
-
-      </div>
-    </div>
-    <div class="card" id="ImagesCard">
-
-      <div class="card-header" id="ImagesHeader">
-        <h1 id="Images"></h1>
-      </div>
-
-      <div class="card-body">
-        <div id="results"></div>
-      </div>
-    </div>
-
-    <div class="card" id="videoCard">
-      <div class="card-header">
-        <h1 id="videos"></h1>
-      </div>
-
-      <div class="card-body search-results">
-
-      </div>
-
-
-    </div>
-
-
-            <div class="card-body">
-                <div id="results"></div>
+        <div class="row">
+          <div class="col-lg-6 col-sm-12">
+            <div class="card" id="videoCard">
+              <div class="card-header videoHeader">
+               <h2 class="watchH2"><i class="fab fa-youtube youtube"></i>Watch</h2>
+              </div>
+          
+              <div class="card-body search-results">
+          
+              </div>
+          
+          
             </div>
-        </div>
-
-        <div class="card" id="videoCard">
-            <div class="card-header">
-                <h1 id="videos"></h1>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <div class="card" id="readCard">
+              <div class="card-header readHeader">
+                <h2 class="readH2"><i class="fab fa-readme readme"></i>Read</h2>
+              </div>
+              <div id="articles" class="card-body"></div>
             </div>
-
-  </div>
-
-  <div class="card">
-    <div class="card-header"><h2>Articles</h2></div>
-    <div id="articles" class="card-body"></div>
-  </div>
-
-
-
-
-        <div id="map"></div>
-
-  </div>
-
-
-
-   
-        <div id="map"></div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <h2>Articles</h2>
+          </div>
         </div>
-        <div id="articles" class="card-body"></div>
-    </div>
-
-
+     
+      </div>
 
 
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <div class="card" id="ImagesCard">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <div class="card-header" id="ImagesHeader">
+      <h1 id="images"><i class="fas fa-place-of-worship place"></i>Popular Places</h1>
+    </div>
+
+    <div class="card-body">
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <footer class="text-center text-white py-5">
+    <h2>  ❤️️ by Web Travelers</h2>
+</footer>
 
 
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE&callback=initMap">
-        </script>
 
-    <script src="script.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE&callback=initMap">
+    </script>
+  <script src="script.js"></script>
+</body>
+
 </body>
 
 </html>

@@ -1,19 +1,19 @@
-
+var country = 'Turkey';
+ajaxCalls(country);
 
 $("#search").on("click", function (event) {
-
     event.preventDefault();
 
-    var searchTerm = $("#searchTerm").val();
-    newsSearch(searchTerm);
+    country = $("#searchTerm").val();
+    ajaxCalls(country);
 
-    var country = $("#searchTerm").val();
+});
+
+function ajaxCalls(country) {
+
     newsSearch(country);
 
-
-
-
-    var querryUrl = "https://restcountries.eu/rest/v2/name/" + searchTerm;
+    var querryUrl = "https://restcountries.eu/rest/v2/name/" + country;
 
     $.ajax({
 
@@ -31,7 +31,7 @@ $("#search").on("click", function (event) {
             method: "GET"
         }).then(function (response) {
             renderWeatherData(response);
-            });
+        });
 
         var settings = {
             "async": true,
@@ -63,29 +63,28 @@ $("#search").on("click", function (event) {
 
         showResults(results);
 
-        var lat=response[0].latlng[0];
-        var lng=response[0].latlng[1];
-        initMap(lat,lng);
+        var lat = response[0].latlng[0];
+        var lng = response[0].latlng[1];
+        initMap(lat, lng);
 
-        var lat=response[0].latlng[0];
-        var lng=response[0].latlng[1];
-        initMap(lat,lng);
+        var lat = response[0].latlng[0];
+        var lng = response[0].latlng[1];
+        initMap(lat, lng);
 
     })
-
-});
-
-function renderCountryData(response){
-    $("#countryName").text(response[0].name);
-    $("#flag").attr("src", response[0].flag);
-    $("#region").text("Region : " + response[0].region);
-    $("#capital").text("Capital : " + response[0].capital);
-    $("#languages").text("Language : " + response[0].languages[0].name);
-    $("#population").text("Population : " + response[0].population);
-    $("#currencies").text("Currency : " + response[0].currencies[0].name);
 }
 
-function renderWeatherData(reponse){
+function renderCountryData(response) {
+    $("#countryName").text(response[0].name);
+    $("#flag").attr("src", response[0].flag);
+    $("#region").html("<strong>Region :</strong> " + response[0].region);
+    $("#capital").html("<strong>Capital :</strong> " + response[0].capital);
+    $("#languages").html("<strong>Language :</strong>  " + response[0].languages[0].name);
+    $("#population").html("<strong>Population :</strong>  " + response[0].population);
+    $("#currencies").html("<strong>Currency :</strong>  " + response[0].currencies[0].name);
+}
+
+function renderWeatherData(response) {
     $("#temp").text((response.main.temp).toFixed(0) + "°F");
     $("#city").text(response.name + ", ");
     $(".imgP").html(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
@@ -94,36 +93,56 @@ function renderWeatherData(reponse){
     $(".currentDate").text(timeUTC.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
 }
 
-function renderImages(resp){
-    $("#Images").text("Images");
+function renderImages(resp) {
     $("#results").empty();
     resp.results.forEach(photo => {
 
-        var result = `<img src=${photo.urls.thumb}>`;
+        var result = `<img "class: imgP " src=${photo.urls.thumb}>`;
         $("#results").append(result);
     });
 }
 
 
-function renderCovidData(res){
-    $("#covidH1").text("Covid 19");
-    $(".active_cases").text("Active Cases : " + res.data.summary.active_cases);
-    $(".critical").text("Critical : " + res.data.summary.critical);
-    $(".death_ratio").text("Death Ratio : " + res.data.summary.death_ratio);
-    $(".deaths").text("Deaths : " + res.data.summary.deaths);
-    $(".recovered").text("Recovered : " + res.data.summary.recovered);
-    $(".recovery_ratio").text("Recovery Ratio : " + res.data.summary.recovery_ratio);
-    $(".tested").text("Tested : " + res.data.summary.tested);
-    $(".total_cases").text("Total Cases : " + res.data.summary.total_cases);
+function renderCovidData(res) {
 
-    if ((parseInt(res.data.summary.active_cases)) > 10000) {
-        $("#covidHeader").removeClass("greenHead");
-        $("#covidHeader").addClass("redHead");
+    $(".active_cases").html("<strong>Active Cases :</strong> " + res.data.summary.active_cases);
+    $(".critical").html("<strong>Critical  :</strong>  " + res.data.summary.critical);
+    $(".death_ratio").html("<strong>Death Ratio :</strong>" + res.data.summary.death_ratio);
+    $(".deaths").html("<strong>Deaths:</strong> " + res.data.summary.deaths);
+    $(".recovered").html("<strong>Recovered :</strong> " + res.data.summary.recovered);
+    $(".recovery_ratio").html("<strong>Recovery Ratio :</strong>  " + res.data.summary.recovery_ratio);
+    $(".tested").html("<strong>Tested :</strong>  " + res.data.summary.tested);
+    $(".total_cases").html("<strong>Total Cases :</strong>  " + res.data.summary.total_cases);
+
+    if (((parseInt(res.data.summary.total_cases)) > 20000)) {
+        $(".covidCard").addClass("red");
+        $(".covidCard").removeClass("yellow");
+        $(".covidCard").removeClass("blue");
+        $(".covidCard").removeClass("green");
+        $("#covidH1").html("Do not travel");
     }
-    else {
-        $("#covidHeader").removeClass("redHead");
-        $("#covidHeader").addClass("greenHead");
+    if (((parseInt(res.data.summary.total_cases)) < 20000) & ((parseInt(res.data.summary.total_cases)) > 10000)) {
+        $(".covidCard").addClass("yellow");
+        $(".covidCard").removeClass("red");
+        $(".covidCard").removeClass("blue");
+        $(".covidCard").removeClass("green");
+        $("#covidH1").html("Reconsider travelling");
     }
+    if (((parseInt(res.data.summary.total_cases)) < 10000) & ((parseInt(res.data.summary.total_cases)) > 1000)) {
+        $(".covidCard").addClass("blue");
+        $(".covidCard").removeClass("red");
+        $(".covidCard").removeClass("yellow");
+        $(".covidCard").removeClass("green");
+        $("#covidH1").html(" Travelling  is relatively safe");
+    }
+    if ((parseInt(res.data.summary.total_cases)) < 1000) {
+        $(".covidCard").addClass("green");
+        $(".covidCard").removeClass("red");
+        $(".covidCard").removeClass("blue");
+        $(".covidCard").removeClass("yellow");
+        $("#covidH1").html("Travel is usually safe");
+    }
+
 }
 
 function showResults(results) {
@@ -133,10 +152,9 @@ function showResults(results) {
     $.each(entries, function (index, value) {
         var title = value.snippet.title;
         var thumbnail = value.snippet.thumbnails.default.url;
-        html += '<p class="videoP">' + title + '</p>';
+        html += '<p>' + '<span class="videoP">' + title + '</span>' + '</p>';
         html += "<a target = '_blank' href = https://www.youtube.com/watch?v=" + value.id.videoId + ' ><img  class="videosImg" src =' + value.snippet.thumbnails.default.url + '></a>';
     });
-    $("#videos").text("Videos");
     $('.search-results').html(html);
     console.log(results);
 }
@@ -145,82 +163,63 @@ function getRequest(searchTerm) {
     var url = 'https://www.googleapis.com/youtube/v3/search';
     var params = {
         part: 'snippet',
-        key: 'AIzaSyC4vv5RSV6CNNL0Scjw2pRTfoiO-1_dEYE',
+        // key: 'AIzaSyA67fL899pF0Yw8NjA2ZqM6gCDx8P4kKFw',
         q: searchTerm
     };
 
     $.getJSON(url, params, showResults);
 }
-// function validateSearch(input){
-//     if(!input){
-//         console.log("success");
-//     }
-// }
-function initMap(latOne,LngOne) {
+
+
+function initMap(latOne, LngOne) {
     // The location of Uluru
-    var uluru = {lat: latOne, lng: LngOne};
+    var uluru = { lat: latOne, lng: LngOne };
     // The map, centered at Uluru
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: uluru});
+        document.getElementById('map'), { zoom: 4, center: uluru });
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
-  
-    }
+    var marker = new google.maps.Marker({ position: uluru, map: map });
 
-    function newsSearch(searchTerm) {
-        var api = "https://newsapi.org/v2/everything?q=";
-        var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
-        var queryURL = api + searchTerm + apiKey;
+}
 
-        console.log(queryURL);
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-
-            var card = $("<div>");
-            card.addClass("card-body");
-
-            for (i = 0; i < 6; i++) {
-                console.log('test')
-                var NYTarticles = response.articles[i];
-                console.log(NYTarticles)
+function newsSearch(country) {
+    var api = "https://newsapi.org/v2/everything?q=";
+    var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
+    var queryURL = api + country + apiKey;
 
 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
 
-                var title = $("<h1>");
-                var url = $("<div>");
-                var img = $("<img class='size'>");
-                img.addClass("size");
+        renderNews(response);
+    });
 
+};
 
-                title.append(NYTarticles.title);
-                img.attr("src", NYTarticles.urlToImage);
-                url.append("<a href=>" + NYTarticles.url);
+function renderNews(response) {
+    var card = $("<div>");
+    card.addClass("card-body");
 
-                card.append(title);
-                card.append(img);
-                card.append(url);
+    for (i = 0; i < 5; i++) {
+        console.log('test')
+        var NYTarticles = response.articles[i];
+        console.log(NYTarticles)
 
-                $("#articles").append(card);
+        '<p>' +  + '</p>';
 
-            }
-        });
+        var title = $("<p>");
+        var url = $("<div>");
         
-    };
-    
 
-// var queeryUrl="https://www.travel-advisory.info/api?countrycode=AD"
+         title.html('<span class="readP">' + NYTarticles.title + '</span>');
+        
+        url.html("<a target = '_blank' href=" + NYTarticles.url + '><img  class="size" src ='+ NYTarticles.urlToImage + '></a>');
+        
+        card.append(title);
+        card.append(url);
 
-// $.ajax({
-
-//     url: queeryUrl,
-//     method:"GET"
-// }).then(function(response){
-
-// console.log(response);
-// console.log(response.data.AD.advisory.score);
-// console.log(response.data.AD.advisory.message);
-
-// });
+        $("#articles").append(card);
+    }
+}
