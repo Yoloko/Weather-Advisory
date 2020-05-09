@@ -270,6 +270,9 @@ p{
  #results img{
     padding: 20px; 
 }
+#results{
+    text-align: center;
+}
 
 .place{
     padding-right: 20px;
