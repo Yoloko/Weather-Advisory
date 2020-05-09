@@ -3,6 +3,11 @@ html, body{
     width: 100%;
 
 }
+
+
+
+
+
 #home{
     background: url(./ball.jpg) no-repeat center center fixed;
     display: table;
@@ -29,18 +34,22 @@ html, body{
 }
 .form-control{
     background-color: transparent;
-    border: 1px solid #28A745 ;
+    border: 1px solid #417192 ;
 }
 
 .exploreH3{
-    color: #218838;
+    color: #417192;
     font-family: 'Pacifico', cursive;
+    margin-bottom: 30px;
     
 }
 
 .exploreH1{
-    color: white;
+   
     font-family: 'Anton', sans-serif;
+    margin-bottom: 70px;
+    font-size: 50px;
+    color: white;
 }
 
 .padding{
@@ -55,31 +64,79 @@ html, body{
     position: relative;
     width: 100%;
     background-size: cover;
+    margin-bottom: 150px;
+    margin-top: 150px;
 }
 
 
 
 
 
+.card-header{
+    background-color: transparent;
+    
+}
 
 
 
+
+.countryTextDiv{
+   
+height: 460px;
+margin-bottom: auto;
+margin-top: auto;
+background-color: #D9EDF7 ;
+color: #417192 ;
+border-radius: 15px;
+  
+    
+}
+
+.countryTextItems{
+    vertical-align: middle;  
+    padding-left: 50px;
+    padding-top: 70px;
+   font-size: 40px;
+}
 
 #flag{
-
     width: 100%;
     height: auto;
+    border-radius: 15px;
 }
+
+#countryName{
+    
+    color: #417192;
+}
+
+#map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+    margin-top: 30px;
+    border-radius: 15px;
+   }
+
 
 .countryCard{
-
+    border: none;
     margin-top: 100px;
 }
+
+.countryHeader{
+    border: none;
+    margin-bottom: 50px;
+    border-bottom: 5px dotted #417192 ;
+    font-family: 'Modak', cursive;
+    
+}
+
 
 #temp{
     margin-top: 50px;
     margin-left: 30px;
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: 900;
     
 }
 
@@ -91,37 +148,124 @@ html, body{
     margin-left: 20px;
     font-size: 20px;
     margin-bottom: -10px;
+    font-weight: 900;
+   
+}
+
+#city, .currentDate{
+    font-weight: 900;
 
 }
 
 p{
     font-size: 20px;
+    
 }
 
-#covidH1, #Images{
+.covidCard{
+    margin-top:30px;
+    border: none; 
+    border-radius: 15px;
+}
+
+.red{
+    background-color: #EED2D2 ;
+    color: #A94442 ;  
+}
+.yellow{
+    background-color: #FAF3D2 ;
+    color: #917544 ;  
+}
+.blue{
+    background-color: #D9EDF7 ;
+    color: #417192 ;  
+}
+.green{
+    background-color: #DDEFD6 ;
+    color: #3C763D ;  
+}
+
+
+
+
+
+
+
+.info{
+
+    margin-right: 20px;
+    color: #417192;
+}
+.goHeader{
+    text-align: center;
+    color:  #3C763D ; 
+    border: none;
+    margin-bottom: 50px;
+    font-family: 'Anton', sans-serif;
+}
+
+.readme{
+    margin-right: 20px;
+    color: #417192;
+
+}
+
+.readH2{
+    color: #417192 ;
     text-align: center;
 }
-.redHead{
-    background-color: red;
+
+.watchH2{
+    color: #A94442;
+    text-align: center;
+    
 }
 
-.greenHead{
-    background-color: green;
+.youtube{
+    color:#A94442 ;
+    margin-right: 20px;
 }
 
-.covidCard, #ImagesCard{
-    margin-top: 50px;
+.videoHeader{
+    border: none;
+    border-bottom: 5px dotted #A94442;
 }
 
-.container{
-    margin-bottom: 20%;
-    margin-top: 5%;
+.readHeader{
+    border: none;
+    border-bottom: 5px dotted #417192;
 }
 
 .videoP{
     margin-top: 20px;
-    background-color:rgba(245, 11, 34, 0.5);
+    background-color:#EED2D2;
+    color: #A94442 ;
+    font-weight: 700;
+   
 }
+
+.readP{
+    margin-top: 20px;
+    background-color:#D9EDF7;
+    color: #417192 ;
+    font-weight: 700;
+
+}
+
+
+
+.size {
+    height: auto;
+    width: 30%;
+    transition: transform .2s;
+};  
+
+.size:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+}
+
 
 
 .videosImg{
@@ -137,20 +281,40 @@ p{
     transform: scale(1.5); 
 }
 
-#videoCard{
-    margin-top: 50px;
-    text-align: center;
+#videoCard, #readCard{
+    border: none;
+text-align: center;
+}
+
+.goCard{
+    border: none;
 }
 
 
-#map {
-    height: 400px;  /* The height is 400 pixels */
-    width: 100%;  /* The width is the width of the web page */
-   }
+#images{
+    text-align: center;
+    color: #3C763D ;
+    font-family: 'Anton', sans-serif;
+}
+ #results img{
+    padding: 20px; 
+}
 
+.place{
+    padding-right: 20px;
+    color: #417192;
+}
+#ImagesCard{
+    background-color:#D9EDF7 ;
+    border: none;
+    margin-bottom: 500px;
+    margin-top: 100px;
+}
+#ImagesHeader{
+    border: none;
+}
 
-.size {
-    height: 300px;
-    width:400px;
-};  
-
+footer{
+    background-color: #417192;
+    font-family: 'Anton', sans-serif;
+}
