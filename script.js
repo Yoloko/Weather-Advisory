@@ -252,10 +252,10 @@ const countryList = [
 // Random button
 $("#ramdom").on("click", function (event) {
     event.preventDefault();
-    for (i = 0; i < countries.length; i++) {
-        var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+    for (i = 0; i < countryList.length; i++) {
+        var randomCountry = countryList[Math.floor(Math.random() * countryList.length)];
     };
-    console.log(randomCountry);
+    $("#searchTerm").val(randomCountry);
     ajaxCalls(randomCountry);
 });
 
@@ -359,7 +359,7 @@ function renderCountryData(response) {
 // Render weather funtion
 function renderWeatherData(response) {
     $("#temp").text((response.main.temp).toFixed(0) + "°F");
-    $("#city").text(response.name + ", ");
+    $("#city").text(response.name + ", ")
     $(".imgP").html(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
     $(".description").text(response.weather[0].main);
     var timeUTC = new Date(response.dt * 1000);
@@ -389,30 +389,18 @@ function renderCovidData(res) {
 
     if (((parseInt(res.data.summary.total_cases)) > 20000)) {
         $(".covidCard").addClass("red");
-        $(".covidCard").removeClass("yellow");
-        $(".covidCard").removeClass("blue");
-        $(".covidCard").removeClass("green");
         $("#covidH1").html("Do not travel");
     }
     if (((parseInt(res.data.summary.total_cases)) < 20000) & ((parseInt(res.data.summary.total_cases)) > 10000)) {
         $(".covidCard").addClass("yellow");
-        $(".covidCard").removeClass("red");
-        $(".covidCard").removeClass("blue");
-        $(".covidCard").removeClass("green");
         $("#covidH1").html("Reconsider travelling");
     }
     if (((parseInt(res.data.summary.total_cases)) < 10000) & ((parseInt(res.data.summary.total_cases)) > 1000)) {
         $(".covidCard").addClass("blue");
-        $(".covidCard").removeClass("red");
-        $(".covidCard").removeClass("yellow");
-        $(".covidCard").removeClass("green");
         $("#covidH1").html(" Travelling  is relatively safe");
     }
     if ((parseInt(res.data.summary.total_cases)) < 1000) {
         $(".covidCard").addClass("green");
-        $(".covidCard").removeClass("red");
-        $(".covidCard").removeClass("blue");
-        $(".covidCard").removeClass("yellow");
         $("#covidH1").html("Travel is usually safe");
     }
 
