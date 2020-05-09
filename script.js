@@ -249,7 +249,7 @@ const countryList = [
 	"Zimbabwe",
 	"Åland Islands"
 ];
-
+// Random button
 $("#ramdom").on("click", function (event) {
     event.preventDefault();
     for (i = 0; i < countries.length; i++) {
@@ -261,7 +261,7 @@ $("#ramdom").on("click", function (event) {
 
 var country = 'Turkey';
 ajaxCalls(country);
-
+// Search button
 $("#search").on("click", function (event) {
     event.preventDefault();
 
@@ -281,13 +281,13 @@ $("#search").on("click", function (event) {
 
 
 });
-
+// Ajax calls
 function ajaxCalls(country) {
 
     newsSearch(country);
 
     var querryUrl = "https://restcountries.eu/rest/v2/name/" + country;
-
+    // Country ajax
     $.ajax({
 
         url: querryUrl,
@@ -298,14 +298,14 @@ function ajaxCalls(country) {
         var city = response[0].capital;
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&Appid=184b8c8a24ffd9f8f74e90f1cbf68400&units=imperial";
 
-
+        // Open weather ajax
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
             renderWeatherData(response);
         });
-
+       //  Corona ajax
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -316,11 +316,11 @@ function ajaxCalls(country) {
                 "x-rapidapi-key": "a0f80e577emsha4706c37533c66bp1a1d81jsn8773d277f381"
             }
         }
-
+       
         $.ajax(settings).done(function (res) {
             renderCovidData(res)
         });
-
+         // Unsplah ajax
         var unsplashCountry = response[0].name;
         var unsplashURL = "https://api.unsplash.com/search/photos/?client_id=I8U6GFIB0XafF8mMxgMsXBxjSO8LW-kqAs5EJfiO6hc&query=" + unsplashCountry;
 
@@ -346,7 +346,7 @@ function ajaxCalls(country) {
 
     })
 }
-
+// Render country function
 function renderCountryData(response) {
     $("#countryName").text(response[0].name);
     $("#flag").attr("src", response[0].flag);
@@ -356,7 +356,7 @@ function renderCountryData(response) {
     $("#population").html("<strong>Population :</strong>  " + response[0].population);
     $("#currencies").html("<strong>Currency :</strong>  " + response[0].currencies[0].name);
 }
-
+// Render weather funtion
 function renderWeatherData(response) {
     $("#temp").text((response.main.temp).toFixed(0) + "°F");
     $("#city").text(response.name + ", ");
@@ -365,7 +365,7 @@ function renderWeatherData(response) {
     var timeUTC = new Date(response.dt * 1000);
     $(".currentDate").text(timeUTC.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
 }
-
+// Render image function
 function renderImages(resp) {
     $("#results").empty();
     resp.results.forEach(photo => {
@@ -375,7 +375,7 @@ function renderImages(resp) {
     });
 }
 
-
+// Render covid data funtion
 function renderCovidData(res) {
 
     $(".active_cases").html("<strong>Active Cases :</strong> " + res.data.summary.active_cases);
@@ -417,7 +417,7 @@ function renderCovidData(res) {
     }
 
 }
-
+// youtu function
 function showResults(results) {
     var html = "";
     var entries = results.items;
@@ -443,7 +443,7 @@ function getRequest(searchTerm) {
     $.getJSON(url, params, showResults);
 }
 
-
+// Map function
 function initMap(latOne, LngOne) {
     // The location of Uluru
     var uluru = { lat: latOne, lng: LngOne };
@@ -470,7 +470,7 @@ function newsSearch(country) {
     });
 
 };
-
+// Render news function
 function renderNews(response) {
     var card = $("<div>");
     card.addClass("card-body");
