@@ -380,10 +380,10 @@ function renderCovidData(res) {
 
     $(".active_cases").html("<strong>Active Cases :</strong> " + res.data.summary.active_cases);
     $(".critical").html("<strong>Critical  :</strong>  " + res.data.summary.critical);
-    $(".death_ratio").html("<strong>Death Ratio :</strong>" + res.data.summary.death_ratio);
+    $(".death_ratio").html("<strong>Death Ratio :</strong>" + res.data.summary.death_ratio.toFixed(2));
     $(".deaths").html("<strong>Deaths:</strong> " + res.data.summary.deaths);
     $(".recovered").html("<strong>Recovered :</strong> " + res.data.summary.recovered);
-    $(".recovery_ratio").html("<strong>Recovery Ratio :</strong>  " + res.data.summary.recovery_ratio);
+    $(".recovery_ratio").html("<strong>Recovery Ratio :</strong>  " + res.data.summary.recovery_ratio.toFixed(2));
     $(".tested").html("<strong>Tested :</strong>  " + res.data.summary.tested);
     $(".total_cases").html("<strong>Total Cases :</strong>  " + res.data.summary.total_cases);
 
@@ -424,7 +424,7 @@ function getRequest(searchTerm) {
     var url = 'https://www.googleapis.com/youtube/v3/search';
     var params = {
         part: 'snippet',
-        // key: 'AIzaSyA67fL899pF0Yw8NjA2ZqM6gCDx8P4kKFw',
+        key: 'AIzaSyARQCm-g4yyIRR3-kAZ7rSRcC4Tps7jDtQ',
         q: searchTerm
     };
 
@@ -473,7 +473,7 @@ function renderNews(response) {
         '<p>' + + '</p>';
 
         var title = $("<p>");
-        var url = $("<div>");
+        var url = $("<div class='imgDiv'>");
 
 
         title.html('<span class="readP">' + NYTarticles.title + '</span>');
