@@ -1,33 +1,36 @@
 # Project_1
--[Web Travelers Github IO](https://yoloko.github.io/Travel-Advisory/)
--[Web Travelers Demo Video]()
+- [Web Travelers Github IO](https://yoloko.github.io/Travel-Advisory/)
+
+- [Web Travelers Demo Video](https://drive.google.com/file/d/1xz1efj-yd15f9efBGLsDXVAb-77Mz9A_/view)
+
 ---
 
-## Team Members/ TASK
+## Team Members/ Task
 
 * HASAN - API, HTML AND CSS
 * KAMAL- CSS, HTML AND API
-* JV- API CSS AND HTML
-* FAITH- README POWERPOINT AND HTML
+* JV- API, CSS AND HTML
+* FAITH- README, POWERPOINT AND HTML
 
-##MOTIVATION
+## Motivation
 
-DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATION EVERY COUNTRY IS FACING BEFORE TRAVEL. THE MOTIVATION OF THIS APPLICATION WAS DRIVEN BY COVID19.
+Due to the current pandemic it is imperative that you are aware of the situation every country is facing before travel. the motivation of this application was driven by covid19.
 
-## DESCRIPTION OF APPLICATION / HOW TO USE THE APPLICATION
+## Description Of Application / How To Use The Application
 
-DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATION EVERY COUNTRY IS FACING BEFORE TRAVEL.THIS APPLACTION WAS BUILD TO HELP USERS  SEARCH DIFFERENT COUNTRY ALL OVER THE WORLD WITH A FOCUS ON WEATHER, NEWS, MAPS, PANDEMIC AND SO MANY MORE. THE MOTIVATION BEHIND THIS APP WAS DRIVEN BY COVID19.
+Due to the current pandemic  it is imperative that you are  aware of the situation every country is facing before travel.This applaction was build to help users  search different country all over the world with a focus on weather, news, maps, pandemic and so many more. the motivation behind this app was driven by covid19.
 
-##FEATURES OF THE APPLICATION
+## Features Of The Application
 
-. HOVER TOOL 
-. VIDEOS
-. IMAGES
-. MAPS
-. NEWS 
-. WEATHER
-.
+. Hover tool 
+. Videos
+. Images
+. Maps
+. News 
+. Weather
+
 ## Design Process
+
 ![Design](DESIGN.png)
 
 
@@ -46,6 +49,7 @@ DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATI
 * Unsplash API  
 * Youtube API  
 * Google Maps API 
+
 ![API](API.png)
 
 
@@ -54,23 +58,12 @@ DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATI
 
 
 ## Future Development 
-ASK THE  USER A COUPLE OF IMPORTANT QUESTIONS 
 
-var yes = true;
-var no = false;
-var questions = [ "WHAT DO YOU LOVE", " DO YOU HAVE ALLERGIES" , "WHAT DO YOU LIKE TO EAT"];
+Ask the  user a couple of important questions 
 
+[ "WHAT DO YOU LOVE", " DO YOU HAVE ALLERGIES" , "WHAT DO YOU LIKE TO EAT"];
 
-IF (yes);
-
-ALERT ("THIS IS YOUR COUNTRY!"){
-}
-else IF (no);
-{
-ALERT ("THIS IS NOT A SAFE PLACE FOR YOU!"){
-}
-
-HELP THE USER FIGURE OUT IF IT IS SAFE TO TRAVEL TO A CERTAIN COUNTRY 
+Help the user figure out if it is safe to travel to a certain country 
 
 
 
