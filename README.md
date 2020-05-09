@@ -16,6 +16,9 @@ DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATI
 
 
 ## Design Process
+![Design](Untitled Diagram.png)
+
+
 
 
 
@@ -31,7 +34,7 @@ DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATI
 * Unsplash API  
 * Youtube API  
 * Google Maps API 
-
+![API](POWERPOINT.png)
 
 
 ## Future Development
