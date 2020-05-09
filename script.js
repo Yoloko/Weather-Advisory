@@ -163,7 +163,7 @@ function getRequest(searchTerm) {
     var url = 'https://www.googleapis.com/youtube/v3/search';
     var params = {
         part: 'snippet',
-        // key: 'AIzaSyA67fL899pF0Yw8NjA2ZqM6gCDx8P4kKFw',
+        key: 'AIzaSyARQCm-g4yyIRR3-kAZ7rSRcC4Tps7jDtQ',
         q: searchTerm
     };
 
@@ -210,7 +210,7 @@ function renderNews(response) {
         '<p>' +  + '</p>';
 
         var title = $("<p>");
-        var url = $("<div>");
+        var url = $("<div class='imgDiv'>");
         
 
          title.html('<span class="readP">' + NYTarticles.title + '</span>');
