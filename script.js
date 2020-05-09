@@ -271,7 +271,7 @@ ajaxCalls(country);
 // Search button
 $("#search").on("click", function (event) {
 	event.preventDefault();
-	jumpScroll();
+	
     country = $("#searchTerm").val();
 
     // user input matches array text 
@@ -286,7 +286,7 @@ $("#search").on("click", function (event) {
         alert("INVALID");
     }
 
-
+	jumpScroll();
 });
 // Ajax calls
 function ajaxCalls(country) {
@@ -452,7 +452,7 @@ function initMap(latOne, LngOne) {
 
 function newsSearch(country) {
     var api = "https://newsapi.org/v2/everything?q=";
-    var apiKey = "&apiKey=6b93eb01addf4c00bcd7f3c423d89e80";
+    var apiKey = "&apiKey=323551b6aee5423f81a0b06c850ae4e6";
     var queryURL = api + country + apiKey;
 
 
