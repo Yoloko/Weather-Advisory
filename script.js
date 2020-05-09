@@ -291,7 +291,6 @@ $("#search").on("click", function (event) {
 
 	jumpScroll();
 });
-<<<<<<< HEAD
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -316,9 +315,6 @@ span.onclick = function() {
 //   }
 }
 
-=======
-// Ajax calls
->>>>>>> c5308e3ae056399ce275c16a8c0ca27200febd9b
 function ajaxCalls(country) {
 
     newsSearch(country);
@@ -415,23 +411,12 @@ function renderImages(resp) {
 // Render covid data funtion
 function renderCovidData(res) {
 
-<<<<<<< HEAD
     $(".active_cases").html("<strong>Active Cases: </strong> " + numberWithCommas(res.data.summary.active_cases));
     $(".death_ratio").html("<strong>Death Ratio: </strong>" + ( res.data.summary.death_ratio * 100 ).toFixed(2) + " %");
     $(".deaths").html("<strong>Deaths:</strong> " + numberWithCommas(res.data.summary.deaths));
     $(".recovered").html("<strong>Recovered: </strong> " + numberWithCommas(res.data.summary.recovered));
     $(".recovery_ratio").html("<strong>Recovery Ratio: </strong>  " + (res.data.summary.recovery_ratio * 100).toFixed(2) + " %");
     $(".total_cases").html("<strong>Total Cases: </strong>  " + numberWithCommas(res.data.summary.total_cases));
-=======
-    $(".active_cases").html("<strong>Active Cases :</strong> " + res.data.summary.active_cases);
-    $(".critical").html("<strong>Critical  :</strong>  " + res.data.summary.critical);
-    $(".death_ratio").html("<strong>Death Ratio :</strong>" + res.data.summary.death_ratio.toFixed(2));
-    $(".deaths").html("<strong>Deaths:</strong> " + res.data.summary.deaths);
-    $(".recovered").html("<strong>Recovered :</strong> " + res.data.summary.recovered);
-    $(".recovery_ratio").html("<strong>Recovery Ratio :</strong>  " + res.data.summary.recovery_ratio.toFixed(2));
-    $(".tested").html("<strong>Tested :</strong>  " + res.data.summary.tested);
-    $(".total_cases").html("<strong>Total Cases :</strong>  " + res.data.summary.total_cases);
->>>>>>> c5308e3ae056399ce275c16a8c0ca27200febd9b
 
     if (((parseInt(res.data.summary.total_cases)) > 20000)) {
         $(".covidCard").addClass("red");
