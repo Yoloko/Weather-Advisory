@@ -3,28 +3,21 @@
 
 ## Team Members
 
-* Faith 
-* Kamal
-* Jon
-* Hasan
+* HASAN
+* KAMAL
+* JV
+* FAITH
 
 
 ## Summary
 
-We created a webpage where we connect with six APIs to present useful information to the user about countries.
+DUE TO THE CURRENT PANDEMIC  IT IS IMPERATIVE THAT YOU ARE  AWARE OF THE SITUATION EVERY COUNTRY IS FACING BEFORE TRAVEL.THIS APPLACTION WAS BUILD TO HELP USERS  SEARCH DIFFERENT COUNTRY ALL OVER THE WORLD WITH A FOCUS ON WEATHER, NEWS, MAPS, PANDEMIC AND SO MANY MORE. THE MOTIVATION BEHIND THIS APP WAS DRIVEN BY COVID19.
 
-## Motivation
 
 
 ## Design Process
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
+
 
 
 ## Technology Used
