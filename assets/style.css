@@ -4,10 +4,11 @@ html, body{
 
 }
 
+p{
+    font-size: 20px;   
+}
 
-
-
-
+/* Styles for  Llanding page */
 #home{
     background: url(./ball.jpg) no-repeat center center fixed;
     display: table;
@@ -15,9 +16,8 @@ html, body{
     position: relative;
     width: 100%;
     background-size: cover;
-    
-
 }
+
 .landing-text{
     display: table-cell;
     text-align: center;
@@ -32,6 +32,7 @@ html, body{
     margin-right: auto;
 
 }
+
 .form-control{
     background-color: transparent;
     border: 1px solid #417192 ;
@@ -52,11 +53,7 @@ html, body{
     color: white;
 }
 
-.padding{
-    padding: 80px 0;
-
-}
-
+/* Styles for  fixed */
 #fixed{
     background: url(./person.jpg) no-repeat center center fixed;
     display: table;
@@ -68,35 +65,26 @@ html, body{
     margin-top: 150px;
 }
 
-
-
-
-
+/* Styles for  countries*/
 .card-header{
     background-color: transparent;
     
 }
 
-
-
-
-.countryTextDiv{
-   
-height: 460px;
-margin-bottom: auto;
-margin-top: auto;
-background-color: #D9EDF7 ;
-color: #417192 ;
-border-radius: 15px;
-  
-    
+.countryTextDiv{   
+    height: 460px;
+    margin-bottom: auto;
+    margin-top: auto;
+    background-color: #D9EDF7 ;
+    color: #417192 ;
+    border-radius: 15px;   
 }
 
 .countryTextItems{
     vertical-align: middle;  
     padding-left: 50px;
     padding-top: 70px;
-   font-size: 40px;
+    font-size: 40px;
 }
 
 #flag{
@@ -106,17 +94,8 @@ border-radius: 15px;
 }
 
 #countryName{
-    
     color: #417192;
 }
-
-#map {
-    height: 400px;  /* The height is 400 pixels */
-    width: 100%;  /* The width is the width of the web page */
-    margin-top: 30px;
-    border-radius: 15px;
-   }
-
 
 .countryCard{
     border: none;
@@ -127,11 +106,18 @@ border-radius: 15px;
     border: none;
     margin-bottom: 50px;
     border-bottom: 5px dotted #417192 ;
-    font-family: 'Modak', cursive;
-    
+    font-family: 'Modak', cursive;  
 }
 
+/* Styles for  map */
+#map {
+    height: 400px;  
+    width: 100%;  
+    margin-top: 30px;
+    border-radius: 15px;
+}
 
+/* Styles for  weather */
 #temp{
     margin-top: 50px;
     margin-left: 30px;
@@ -157,11 +143,7 @@ border-radius: 15px;
 
 }
 
-p{
-    font-size: 20px;
-    
-}
-
+/* Styles for  covid */
 .covidCard{
     margin-top:30px;
     border: none; 
@@ -185,23 +167,27 @@ p{
     color: #3C763D ;  
 }
 
-
-
-
-
-
-
+/* Styles for  video and articles */
 .info{
 
     margin-right: 20px;
     color: #417192;
 }
+.goCard{
+    border: none;
+}
+
 .goHeader{
     text-align: center;
     color:  #3C763D ; 
     border: none;
     margin-bottom: 50px;
     font-family: 'Anton', sans-serif;
+}
+/* Styles for  articles */
+.readHeader{
+    border: none;
+    border-bottom: 5px dotted #417192;
 }
 
 .readme{
@@ -215,6 +201,29 @@ p{
     text-align: center;
 }
 
+.readP{
+    margin-top: 20px;
+    background-color:#D9EDF7;
+    color: #417192 ;
+    font-weight: 700;
+
+}
+
+.imgDiv{
+    margin-bottom: 20px;
+}
+.size {
+    height: auto;
+    width: 35%;
+    transition: transform .2s;
+} 
+/* Styles for  videos */
+.videoHeader{
+    border: none;
+    border-bottom: 5px dotted #A94442;
+    margin-bottom: 20px;
+}
+
 .watchH2{
     color: #A94442;
     text-align: center;
@@ -226,71 +235,33 @@ p{
     margin-right: 20px;
 }
 
-.videoHeader{
-    border: none;
-    border-bottom: 5px dotted #A94442;
-}
-
-.readHeader{
-    border: none;
-    border-bottom: 5px dotted #417192;
-}
-
 .videoP{
     margin-top: 20px;
     background-color:#EED2D2;
     color: #A94442 ;
     font-weight: 700;
-   
 }
 
-.readP{
-    margin-top: 20px;
-    background-color:#D9EDF7;
-    color: #417192 ;
-    font-weight: 700;
-
+#videoCard, #readCard{
+    border: none;
+    text-align: center;
 }
-
-
-
-.size {
-    height: auto;
-    width: 30%;
-    transition: transform .2s;
-};  
-
-.size:hover{
-    -ms-transform: scale(1.5); /* IE 9 */
-    -webkit-transform: scale(1.5); /* Safari 3-8 */
-    transform: scale(1.5); 
-}
-
-
 
 .videosImg{
     height: auto;
     width: 30%;
+    margin-bottom: 20px;
     transition: transform .2s;
 
 }
-
+/* Hover for  video images */
 .videosImg:hover{
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
     transform: scale(1.5); 
 }
 
-#videoCard, #readCard{
-    border: none;
-text-align: center;
-}
-
-.goCard{
-    border: none;
-}
-
-
+/* Styles for  images */
 #images{
     text-align: center;
     color: #3C763D ;
@@ -314,6 +285,7 @@ text-align: center;
     border: none;
 }
 
+/* Styles for  footer */
 footer{
     background-color: #417192;
     font-family: 'Anton', sans-serif;
