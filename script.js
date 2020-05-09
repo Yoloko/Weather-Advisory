@@ -329,7 +329,7 @@ function ajaxCalls(country) {
 
         renderCountryData(response);
         var city = response[0].capital;
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&Appid=184b8c8a24ffd9f8f74e90f1cbf68400&units=imperial";
+        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=1111c693bffa0cd8263c73cbe8fe55be&units=imperial";
 
         // Open weather ajax
         $.ajax({
@@ -457,7 +457,7 @@ function getRequest(searchTerm) {
     var url = 'https://www.googleapis.com/youtube/v3/search';
     var params = {
         part: 'snippet',
-        key: 'AIzaSyARQCm-g4yyIRR3-kAZ7rSRcC4Tps7jDtQ',
+        key: 'AIzaSyB7mwOp0RYTx14KNXpqBfkz9VTPYaaWkkg',
         q: searchTerm
     };
 
