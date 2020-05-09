@@ -444,6 +444,8 @@ function showResults(results) {
     $.each(entries, function (index, value) {
         var title = value.snippet.title;
         var thumbnail = value.snippet.thumbnails.default.url;
+        var parent = $('div');
+        parent.addClass('hvr-foward');
         html += '<p>' + '<span class="videoP">' + title + '</span>' + '</p>';
         html += "<a target = '_blank' href = https://www.youtube.com/watch?v=" + value.id.videoId + ' ><img  class="videosImg" src =' + value.snippet.thumbnails.default.url + '></a>';
     });
@@ -502,7 +504,7 @@ function renderNews(response) {
         console.log(NYTarticles)
 
         '<p>' + + '</p>';
-
+        var parent = $('<div>');
         var title = $("<p>");
         var url = $("<div class='imgDiv'>");
 
@@ -511,8 +513,10 @@ function renderNews(response) {
 
         url.html("<a target = '_blank' href=" + NYTarticles.url + '><img  class="size" src =' + NYTarticles.urlToImage + '></a>');
 
-        card.append(title);
-        card.append(url);
+        parent.append(title);
+        parent.append(url);
+        parent.addClass('hvr-forward')
+        card.append(parent);
 
         $("#articles").append(card);
     }
