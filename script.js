@@ -249,6 +249,11 @@ const countryList = [
 	"Zimbabwe",
 	"Åland Islands"
 ];
+
+// Jump function
+function jumpScroll() {
+	window.scroll(0,1000); // horizontal and vertical scroll targets
+};
 // Random button
 $("#ramdom").on("click", function (event) {
     event.preventDefault();
@@ -256,15 +261,17 @@ $("#ramdom").on("click", function (event) {
         var randomCountry = countryList[Math.floor(Math.random() * countryList.length)];
     };
     $("#searchTerm").val(randomCountry);
-    ajaxCalls(randomCountry);
+	ajaxCalls(randomCountry);
+
+ jumpScroll();
 });
 
 var country = 'Turkey';
 ajaxCalls(country);
 // Search button
 $("#search").on("click", function (event) {
-    event.preventDefault();
-
+	event.preventDefault();
+	jumpScroll();
     country = $("#searchTerm").val();
 
     // user input matches array text 
