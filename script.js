@@ -266,7 +266,9 @@ $("#search").on("click", function (event) {
     event.preventDefault();
 
     country = $("#searchTerm").val();
-
+    if(!country){
+        alertInvalid();
+    }
     // user input matches array text 
     var countryLowercase = country.toLowerCase();
     var countryCapitalized = countryLowercase[0].toUpperCase() + countryLowercase.slice(1);
@@ -276,11 +278,35 @@ $("#search").on("click", function (event) {
         ajaxCalls(countryCapitalized);
     }else{
         // modalfunctioncall();
-        alert("INVALID");
+        // alert("INVALID");
+        alertInvalid();
     }
 
 
 });
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function alertInvalid(){
+    // Get the modal
+var modal = document.getElementById("myModal");
+
+
+var span = document.getElementsByClassName("close")[0];
+
+  modal.style.display = "block";
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+}
 
 function ajaxCalls(country) {
 
@@ -353,7 +379,7 @@ function renderCountryData(response) {
     $("#region").html("<strong>Region :</strong> " + response[0].region);
     $("#capital").html("<strong>Capital :</strong> " + response[0].capital);
     $("#languages").html("<strong>Language :</strong>  " + response[0].languages[0].name);
-    $("#population").html("<strong>Population :</strong>  " + response[0].population);
+    $("#population").html("<strong>Population :</strong>  " + numberWithCommas(response[0].population));
     $("#currencies").html("<strong>Currency :</strong>  " + response[0].currencies[0].name);
 }
 
@@ -370,7 +396,7 @@ function renderImages(resp) {
     $("#results").empty();
     resp.results.forEach(photo => {
 
-        var result = `<img "class: imgP " src=${photo.urls.thumb}>`;
+        var result = `<img class="imgP hvr-wobble-to-bottom-right" src=${photo.urls.thumb}>`;
         $("#results").append(result);
     });
 }
@@ -378,14 +404,12 @@ function renderImages(resp) {
 
 function renderCovidData(res) {
 
-    $(".active_cases").html("<strong>Active Cases :</strong> " + res.data.summary.active_cases);
-    $(".critical").html("<strong>Critical  :</strong>  " + res.data.summary.critical);
-    $(".death_ratio").html("<strong>Death Ratio :</strong>" + res.data.summary.death_ratio);
-    $(".deaths").html("<strong>Deaths:</strong> " + res.data.summary.deaths);
-    $(".recovered").html("<strong>Recovered :</strong> " + res.data.summary.recovered);
-    $(".recovery_ratio").html("<strong>Recovery Ratio :</strong>  " + res.data.summary.recovery_ratio);
-    $(".tested").html("<strong>Tested :</strong>  " + res.data.summary.tested);
-    $(".total_cases").html("<strong>Total Cases :</strong>  " + res.data.summary.total_cases);
+    $(".active_cases").html("<strong>Active Cases: </strong> " + numberWithCommas(res.data.summary.active_cases));
+    $(".death_ratio").html("<strong>Death Ratio: </strong>" + ( res.data.summary.death_ratio * 100 ).toFixed(2) + " %");
+    $(".deaths").html("<strong>Deaths:</strong> " + numberWithCommas(res.data.summary.deaths));
+    $(".recovered").html("<strong>Recovered: </strong> " + numberWithCommas(res.data.summary.recovered));
+    $(".recovery_ratio").html("<strong>Recovery Ratio: </strong>  " + (res.data.summary.recovery_ratio * 100).toFixed(2) + " %");
+    $(".total_cases").html("<strong>Total Cases: </strong>  " + numberWithCommas(res.data.summary.total_cases));
 
     if (((parseInt(res.data.summary.total_cases)) > 20000)) {
         $(".covidCard").addClass("red");
